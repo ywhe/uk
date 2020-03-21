@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 class SummaryItem extends React.Component{
     constructor(props){
         super(props);
+        this.state={};
     }
     render(){
         let totalClass=this.props.textColorClass+' front-weight-bold';

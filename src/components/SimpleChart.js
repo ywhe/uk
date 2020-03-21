@@ -1,26 +1,28 @@
 import React from 'react'
-import {Line} from 'react-chartjs-2'
+import Chart from 'chart.js'
 
-class LineChart extends React.Component{
+export default class SimpleChart extends React.Component{
     constructor(props){
         super(props);
         this.state={};
     }
-    render(){
-        let data={
-            labels: this.props.labels,
+    chartRef = React.createRef();
+    componentDidMount(){
+        const ctx = this.chartRef.current.getContext("2d");
+        let data = {
+            labels:this.props.labels,
             datasets: [{
-                fill:false,
                 label: this.props.title,
                 backgroundColor: this.props.color,
                 borderColor: this.props.color,
+                fill: false,
                 data: this.props.data
-            }]
+                }]
         };
-        let options={
+        let options = {
             responsive: true,
             legend: {
-                    display: false
+                 display: false
             },
             title: {
                 display: true,
@@ -50,9 +52,17 @@ class LineChart extends React.Component{
                 }]
             }
         };
+
+        new Chart(ctx,{
+            type:this.props.type,
+            data:data,
+            options:options,
+        });
+    }
+    render(){
         return (
-            <Line data={data} options={options}></Line>
-        )
+            <canvas ref={this.chartRef}></canvas>
+        );
     }
 }
- export default LineChart
+

@@ -5,12 +5,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 class Summary extends React.Component{
     constructor(props){
         super(props);
+        this.state={};
     }
     render(){
-        let date=new Date();
-        let dateStr=date.toDateString()
+        let date=new Date(this.props.data.Date);
+        let dateStr=date.toDateString();
         return(
-        <Card style={{ 'min-width':'9rem','max-width':'28rem',margin:'auto'}}>
+        <Card style={{ 'minWidth':'9rem','maxWidth':'28rem',margin:'auto'}}>
             <Card.Header>
                  <span className="font-weight-bold">COVID-19 UK Summary</span><span className="float-right small">{dateStr}</span>
             </Card.Header>
