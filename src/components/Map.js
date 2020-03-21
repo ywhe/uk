@@ -38,7 +38,7 @@ class Map extends Component {
 }
 Map.defaultProps = {
     options:{
-        center: { lat: 41.0082, lng: 28.9784 },
+        center: { lat: 51.5499133, lng: -0.1985144 },
         zoom: 8
     }
 }

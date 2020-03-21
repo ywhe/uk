@@ -37,10 +37,10 @@ export default class ConfirmedMap extends React.Component{
     if(!records){ records=[];}
     for (var i = 0; i < records.length; i++) {
         var record = records[i];
-        var laglng = new window.google.maps.LatLng(record.Latitude, record.Longitude);
+        var laglng = new window.google.maps.LatLng(record.latitude, record.longitude);
         var title = record.Name + "  " + record.Count;
         bounds.extend(laglng);
-        var color = this.GetColor(record.Count);
+        var color = this.GetColor(record.count);
         var icon = 'https://www.google.com/maps/vt/icon/name=assets/icons/poi/tactile/pinlet_shadow_v3-2-medium.png,assets/icons/poi/tactile/pinlet_outline_v3-2-medium.png,assets/icons/poi/tactile/pinlet_v3-2-medium.png,assets/icons/poi/quantum/pinlet/medical_pinlet_v2-2-medium.png&highlight=ff000000,ffffff,' + color + ',ffffff?scale=1'
         var dMarker = new window.google.maps.Marker({
             map: map,
@@ -73,8 +73,6 @@ export default class ConfirmedMap extends React.Component{
     if (count > 40) color = 'f000ff';
     if (count > 50) color = '000000';
     return color;
-  
-  
   }
 
   render(){

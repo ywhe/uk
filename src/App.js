@@ -17,7 +17,7 @@ class App extends React.Component {
   }
   componentDidMount(){
     this.setState({isLoading:true});
-    let url="https://raw.githubusercontent.com/ywhe/uk/master/src/data.json"
+    let url="https://raw.githubusercontent.com/ywhe/uk/master/data.json"
     fetch(url)
     .then(response=>{
       console.log(response);
@@ -44,24 +44,24 @@ class App extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm" style={{minHeight:'300px'}}>
-            <SimpleChart type="line" title="Cumulative Confirmed" color="red" labels={this.state.data.labels} data={this.state.data.confirmedData}></SimpleChart>
+            <SimpleChart type="line" title="Cumulative Confirmed" color="red" labels={this.state.data.labels} data={this.state.data.cumulativeConfirmed}></SimpleChart>
           </div>
           <div className="col-sm" style={{minHeight:'300px'}}>
-            <SimpleChart type="line" title="Cumulative Deaths" color="black" labels={this.state.data.labels} data={this.state.data.confirmedData}></SimpleChart>
+            <SimpleChart type="line" title="Cumulative Deaths" color="black" labels={this.state.data.labels} data={this.state.data.cumulativeDeaths}></SimpleChart>
           </div>
           <div className="col-sm" style={{minHeight:'300px'}}>
-            <SimpleChart type="line" title="Cumulative Tested" color="green" labels={this.state.data.labels} data={this.state.data.confirmedData}></SimpleChart>
+            <SimpleChart type="line" title="Cumulative Tested" color="green" labels={this.state.data.labels} data={this.state.data.cumulativeTested}></SimpleChart>
           </div>
         </div>
         <div className="row">
           <div className="col-sm" style={{minHeight:'300px'}}>
-            <SimpleChart type="bar" title="Daily Confirmed" color="red" labels={this.state.data.labels} data={this.state.data.confirmedData}></SimpleChart>
+            <SimpleChart type="bar" title="Daily Confirmed" color="red" labels={this.state.data.labels} data={this.state.data.dailyConfirmed}></SimpleChart>
           </div>
           <div className="col-sm" style={{minHeight:'300px'}}>
-            <SimpleChart type="bar" title="Daily Deaths" color="black" labels={this.state.data.labels} data={this.state.data.confirmedData}></SimpleChart>
+            <SimpleChart type="bar" title="Daily Deaths" color="black" labels={this.state.data.labels} data={this.state.data.dailyDeaths}></SimpleChart>
           </div>
           <div className="col-sm" style={{minHeight:'300px'}}>
-            <SimpleChart type="bar" title="Daily Tested" color="green" labels={this.state.data.labels} data={this.state.data.confirmedData}></SimpleChart>
+            <SimpleChart type="bar" title="Daily Tested" color="green" labels={this.state.data.labels} data={this.state.data.dailyTested}></SimpleChart>
           </div>
         </div>
         <div className="row">
