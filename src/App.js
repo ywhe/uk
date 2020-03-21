@@ -3,6 +3,7 @@ import './App.css';
 import Summary from './components/Summary'
 import SimpleChart from './components/SimpleChart'
 import ConfirmedMap from './components/ConfirmedMap'
+import DetailsTable from './components/DetailsTable'
 
 class App extends React.Component {
   constructor(props){
@@ -20,14 +21,12 @@ class App extends React.Component {
     let url="https://raw.githubusercontent.com/ywhe/uk/master/data.json"
     fetch(url)
     .then(response=>{
-      console.log(response);
       return response.json()})
     .then(data=>{
       this.setState({
         data:data,
         isLoading:false
       });
-      console.log(this.state);
     });
   }
   render(){
@@ -64,17 +63,17 @@ class App extends React.Component {
             <SimpleChart type="bar" title="Daily Tested" color="green" labels={this.state.data.labels} data={this.state.data.dailyTested}></SimpleChart>
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-8" style={{height:'100vh'}}>
+        <div style={{height:'1rem'}}></div>
+        <div className="row vh-100">
+          <div className="col-md-8" style={{height:'100vh'}}>
               <ConfirmedMap records={this.state.data.details}></ConfirmedMap>
             </div>
           <div className='col-sm'>
-              table here 
+              <DetailsTable data={this.state.data.details}></DetailsTable> 
           </div>
         </div>
       </div>
     );
   } 
 }
-
 export default App;
