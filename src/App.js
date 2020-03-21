@@ -1,24 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Summary from './components/Summary'
 
 function App() {
+  let data={
+    NewConfirmedCount:10,
+    ConfirmedCount:1000,
+    TestedCount:20000,
+    NewTestedCount:2000,
+    DeathsCount:144,
+    NewDeathsCount:30,
+    LondonCount:800,
+    NewLondonCount:0
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Summary data={data}></Summary>
     </div>
   );
 }
