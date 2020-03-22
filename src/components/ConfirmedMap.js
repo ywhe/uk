@@ -23,7 +23,7 @@ export default class ConfirmedMap extends React.Component{
         });
   }
   AddBoundary(map){
-    map.data.loadGeoJson('https://ywhe.github.io/UK-COVID-19-Daily-Update/England.json');
+    map.data.loadGeoJson('https://raw.githubusercontent.com/ywhe/uk/master/England.json');
     map.data.setStyle({
         strokeWeight: 0.35,
         strokeColor: 'red',
