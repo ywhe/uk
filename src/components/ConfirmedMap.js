@@ -52,26 +52,26 @@ export default class ConfirmedMap extends React.Component{
     }
   }
   AddInfoWindow(map,marker, record) {
-      var content = "<div><h6>" + record.Name + "</h6><br /><p>Confirmed:<b class='text-danger'>" + record.Count + "</b></p><p>New:    <b class='text-danger'>" + record.NewCount + "</b></p></div>"
+      var content = "<div><h6>" + record.name + "</h6><br /><p>Confirmed:<b class='text-danger'>" + record.count + "</b></p><p>New:    <b class='text-danger'>" + record.newCount + "</b></p></div>"
       var infoWindow = new window.google.maps.InfoWindow({
           content: content
       });
-      window.google.maps.event.addListener(marker, 'click', function () {
+      window.google.maps.event.addListener(marker, 'click', (function () {
           if (this.lastWindow != null) {
               this.lastWindow.close();
           }
           infoWindow.open(map, marker);
           this.lastWindow = infoWindow;
-      });
+      }).bind(this));
   }
   GetColor(count) {
     var color = 'ffce99';
     if (count > 5) color = 'f88181';
     if (count > 10) color = 'ff8f00';
-    if (count > 20) color = 'ff5b00';
-    if (count > 30) color = 'ff0505';
-    if (count > 40) color = 'f000ff';
-    if (count > 50) color = '000000';
+    if (count > 30) color = 'ff5b00';
+    if (count > 50) color = 'ff0505';
+    if (count > 80) color = 'f000ff';
+    if (count > 100) color = '000000';
     return color;
   }
 

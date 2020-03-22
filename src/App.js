@@ -30,6 +30,7 @@ class App extends React.Component {
     });
   }
   render(){
+    document.cookie="SameSite=None;Secure";
     if(this.state.isLoading)
     {
         return (<div>is loading.....</div>);
@@ -68,7 +69,7 @@ class App extends React.Component {
           <div className="col-md-8" style={{height:'100vh'}}>
               <ConfirmedMap records={this.state.data.details}></ConfirmedMap>
             </div>
-          <div className='col-sm'>
+          <div className='col'>
               <DetailsTable data={this.state.data.details}></DetailsTable> 
           </div>
         </div>
