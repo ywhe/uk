@@ -2,7 +2,7 @@ import React from 'react'
 export default class DetailsTable extends React.Component{
     render(){
         return (
-            <table id="table" className="table table-responsive" style={{maxHeight:'100vh'}}>
+            <table id="table" className="table table-responsive" style={{height:'100%'}}>
                 <thead className="thead-dark">
                     <tr>
                         <th>Location</th>
